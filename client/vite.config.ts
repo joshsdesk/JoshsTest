@@ -1,16 +1,15 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3001,
+    port: 3003, // ✅ must be different from backend
     host: '127.0.0.1',
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'http://127.0.0.1:3001', // ✅ use 127.0.0.1, not localhost
         secure: false,
         changeOrigin: true,
       },

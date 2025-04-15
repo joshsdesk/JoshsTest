@@ -5,13 +5,15 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'http://127.0.0.1:3001',  // Updated to match your client URL
+    baseUrl: 'http://127.0.0.1:3001',
+    supportFile: 'cypress/support/e2e.ts',
   },
   component: {
     devServer: {
       framework: 'react',
-      bundler: 'webpack',
+      bundler: 'vite', // ✅ You’re using Vite, not Webpack
     },
+    supportFile: 'cypress/support/component.ts', // ✅ Ensures mount is loaded
   },
   retries: {
     runMode: 2,
